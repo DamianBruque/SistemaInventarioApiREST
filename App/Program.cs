@@ -1,4 +1,10 @@
+using DataAccess;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+// DB Context
+builder.Services.AddDbContext<ProjectContext>();
 
 // Add services to the container.
 

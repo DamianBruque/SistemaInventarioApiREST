@@ -8,6 +8,8 @@ namespace Models.DAO
 {
     public class UserDAO
     {
-        
+        public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserEmail { get; set; }
     }
 }

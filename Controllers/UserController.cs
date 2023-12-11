@@ -1,5 +1,7 @@
 ﻿
 using Services;
+using Microsoft.AspNetCore.Mvc;
+using Models.DAO;
 
 namespace Controllers
 {
@@ -11,6 +13,13 @@ namespace Controllers
         public UserController(UserService userService)
         {
             service = userService;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserDAO>>> GetAll()
+        {
+            List<UserDAO> users = await service.GetUsers();
+            return users;
         }
     }
 }

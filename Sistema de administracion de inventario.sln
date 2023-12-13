@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controllers", "Controllers\Controllers.csproj", "{E8C924AE-A148-4796-9080-1FBCCBC24AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{7D47185F-4FA6-4ACD-9EB1-EA12E998842B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security\Security.csproj", "{7D47185F-4FA6-4ACD-9EB1-EA12E998842B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{F64C6BCD-E0B5-4E3B-9D74-BABA7F8A6544}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{7D47185F-4FA6-4ACD-9EB1-EA12E998842B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D47185F-4FA6-4ACD-9EB1-EA12E998842B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D47185F-4FA6-4ACD-9EB1-EA12E998842B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64C6BCD-E0B5-4E3B-9D74-BABA7F8A6544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64C6BCD-E0B5-4E3B-9D74-BABA7F8A6544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64C6BCD-E0B5-4E3B-9D74-BABA7F8A6544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64C6BCD-E0B5-4E3B-9D74-BABA7F8A6544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

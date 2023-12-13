@@ -1,10 +1,13 @@
-using DataAccess;
+using Configurations;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<ProjectContext>(); // DBContext
 
+builder.Services.AddProjectContextSqlServer();  // DBContext
+builder.Services.AddServices();                 // Services
+builder.Services.AddRepositories();             // Repositories
 
 
 builder.Services.AddControllers();

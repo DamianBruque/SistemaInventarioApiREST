@@ -21,6 +21,7 @@ public static class DependencyContainer
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+        services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
         return services;
     }
 

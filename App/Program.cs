@@ -6,8 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddProjectContextSqlServer();  // DBContext
-builder.Services.AddServices();                 // Services
 builder.Services.AddRepositories();             // Repositories
+builder.Services.AddServices();                 // Services
 
 
 builder.Services.AddControllers();

@@ -2,11 +2,10 @@ using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// DB Context
-builder.Services.AddDbContext<ProjectContext>();
-
 // Add services to the container.
+builder.Services.AddDbContext<ProjectContext>(); // DBContext
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

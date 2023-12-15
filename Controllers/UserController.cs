@@ -25,6 +25,12 @@ namespace Controllers
             return Ok(baseService.GetAll());
         }
 
+        [HttpGet("/get")]
+        public IActionResult Get(int id)
+        {
+            return Ok(baseService.GetById(id));
+        }
+
         [HttpPost("/create")]
         public IActionResult Create(UserDTO user,string password)
         {

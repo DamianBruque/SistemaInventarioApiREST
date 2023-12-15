@@ -1,5 +1,8 @@
-﻿using Repositories;
+﻿using DTO;
+using Models;
+using Repositories;
 using Services.Abstractions;
+using Utililies;
 
 namespace Services
 {
@@ -7,9 +10,12 @@ namespace Services
     {
         
         private readonly IUserRepository repository;
-        public UserService(IUserRepository userRepository)
+        private readonly IBaseRepository<UserEntity> baseRepository;
+        public UserService(IUserRepository userRepository, IBaseRepository<UserEntity> baseRepository)
         {
             repository = userRepository;
+            this.baseRepository = baseRepository;
         }
+
     }
 }

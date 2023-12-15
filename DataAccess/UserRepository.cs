@@ -3,10 +3,12 @@ using Repositories;
 
 namespace DataAccess
 {
-    public class UserRepository : BaseRepository<UserEntity>, IUserRepository
+    public class UserRepository : IUserRepository
     {
-        public UserRepository(ProjectContext context) : base(context)
+        private readonly ProjectContext _context;
+        public UserRepository(ProjectContext context)
         {
+            _context = context;
         }
     }
 }

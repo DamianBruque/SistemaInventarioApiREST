@@ -1,6 +1,8 @@
 ﻿
-using Services;
+using Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using DTO;
+using Models;
 
 namespace Controllers
 {
@@ -8,10 +10,20 @@ namespace Controllers
     [Route("/user")]
     public class UserController : ControllerBase
     {
-        private readonly UserService service;
-        public UserController(UserService userService)
+        private readonly IUserService service;
+        private readonly IBaseService<UserEntity,UserDTO> baseService;
+        public UserController(IUserService userService, IBaseService<UserEntity,UserDTO> baseService)
         {
             service = userService;
+            this.baseService = baseService;
         }
+
+
+        [HttpGet("/all")]
+        public IActionResult GetAll()
+        {
+            return Ok(baseService.GetAll());
+        }
+        
     }
 }

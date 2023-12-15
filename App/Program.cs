@@ -1,11 +1,14 @@
 using Configurations;
+using DataAccess;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddProjectContextSqlServer();  // DBContext
+//builder.Services.AddProjectContextSqlServer();  // DBContext
+builder.Services.AddProjectContextSQLite();     // DBContext
 builder.Services.AddRepositories();             // Repositories
 builder.Services.AddServices();                 // Services
 
@@ -16,7 +19,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+// iniciamos la base de datos con EnsureCreated
+using (var serviceScope = app.Services.CreateScope())
+{
+    var context = serviceScope.ServiceProvider.GetRequiredService<ProjectContext>();
+    context.Database.Migrate();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

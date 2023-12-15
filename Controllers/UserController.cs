@@ -24,6 +24,12 @@ namespace Controllers
         {
             return Ok(baseService.GetAll());
         }
+
+        [HttpPost("/create")]
+        public IActionResult Create(UserDTO user,string password)
+        {
+            return Ok(service.Create(user,password));
+        }
         
     }
 }

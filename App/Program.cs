@@ -1,4 +1,3 @@
-using Configurations;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,10 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//builder.Services.AddProjectContextSqlServer();  // DBContext
-builder.Services.AddProjectContextSQLite();     // DBContext
-builder.Services.AddRepositories();             // Repositories
-builder.Services.AddServices();                 // Services
+//builder.Services.AddProjectContextSqlServer();    // DBContext SqlServer
+//builder.Services.AddProjectContextSQLite();       // DBContext Sqlite
+builder.Services.AddProjectContextOracle();         // DBContext Oracle
+builder.Services.AddRepositories();                 // Repositories
+builder.Services.AddServices();                     // Services
+builder.Services.AddConfigureSecurityServices();    // Security
+
+// agregamos el secrets.env
+builder.Configuration.AddEnvironmentVariables();
+string secretKey = builder.Configuration["SECRET_TOKEN_JWT"];
+
 
 
 builder.Services.AddControllers();
@@ -33,8 +39,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.MapControllers();
 

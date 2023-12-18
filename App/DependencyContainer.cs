@@ -1,12 +1,8 @@
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Repositories;
 using Services;
 using Services.Abstractions;
-using System.Reflection;
-
-namespace Configurations;
 
 public static class DependencyContainer
 {
@@ -16,6 +12,11 @@ public static class DependencyContainer
         services.AddDbContext<ProjectContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("ConnStringWebApiUdemy")));
         return services;
     }*/
+    public static IServiceCollection AddProjectContextOracle(this IServiceCollection services)
+    {
+        services.AddDbContext<ProjectContext>(options => options.UseOracle(connectionString: Environment.GetEnvironmentVariable("UdemyWebApiOracle")));
+        return services;
+    }
     public static IServiceCollection AddProjectContextSQLite(this IServiceCollection services)
     {
         services.AddDbContext<ProjectContext>(options => options.UseSqlite("Data Source=database.db"));

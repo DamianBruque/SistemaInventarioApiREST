@@ -14,4 +14,8 @@ public class UserEntity
     public string Password { get; set; }
     [Required]
     public bool State { get; set; }
+    
+    public int RoleId { get; set; }
+    [ForeignKey("RoleId")]
+    public RoleEntity Role { get; set; }
 }

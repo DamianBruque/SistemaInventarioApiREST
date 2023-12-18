@@ -13,15 +13,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.21.121" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
 	  <ProjectReference Include="..\Controllers\Controllers.csproj" />
 	  <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Security\" />
   </ItemGroup>
 
 </Project>

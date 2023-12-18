@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Dev custom files
 *.db
+*.env
